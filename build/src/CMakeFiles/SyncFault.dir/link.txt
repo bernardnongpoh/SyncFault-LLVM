@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG  -shared  -o libSyncFault.so CMakeFiles/SyncFault.dir/FaultInjector.cpp.o CMakeFiles/SyncFault.dir/VariableInfo.cpp.o CMakeFiles/SyncFault.dir/FaultEngine.cpp.o CMakeFiles/SyncFault.dir/SharedFaultEngine.cpp.o  -L/usr/local/lib 
