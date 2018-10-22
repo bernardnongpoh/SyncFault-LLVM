@@ -1,0 +1,731 @@
+digraph _Z15sobel_filteringv{
+
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata [3 x [3 x i32]]* %weight, metadata !251, metadata !34), !dbg !255";
+"llvm.dbg.declare" [ color = red ]
+"  %weight = alloca [3 x [3 x i32]], align 16" -> "  %0 = bitcast [3 x [3 x i32]]* %weight to i8*, !dbg !35";
+"weight" -> "  %0 = bitcast [3 x [3 x i32]]* %weight to i8*, !dbg !35";
+"weight" [ color = red ]
+"  %0 = bitcast [3 x [3 x i32]]* %weight to i8*, !dbg !35" -> "  call void @llvm.memset.p0i8.i64(i8* %0, i8 0, i64 36, i32 16, i1 false), !dbg !35";
+"llvm.memset.p0i8.i64" -> "  call void @llvm.memset.p0i8.i64(i8* %0, i8 0, i64 36, i32 16, i1 false), !dbg !35";
+"llvm.memset.p0i8.i64" [ color = red ]
+"  %0 = bitcast [3 x [3 x i32]]* %weight to i8*, !dbg !35" -> "  %1 = bitcast i8* %0 to [3 x [3 x i32]]*, !dbg !35";
+"  %1 = bitcast i8* %0 to [3 x [3 x i32]]*, !dbg !35" -> "  %2 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 0, !dbg !35";
+"  %2 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 0, !dbg !35" -> "  %3 = getelementptr [3 x i32], [3 x i32]* %2, i32 0, i32 0, !dbg !35";
+"  %3 = getelementptr [3 x i32], [3 x i32]* %2, i32 0, i32 0, !dbg !35" -> "  store i32 -1, i32* %3, !dbg !35";
+"  %2 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 0, !dbg !35" -> "  %4 = getelementptr [3 x i32], [3 x i32]* %2, i32 0, i32 2, !dbg !35";
+"  %4 = getelementptr [3 x i32], [3 x i32]* %2, i32 0, i32 2, !dbg !35" -> "  store i32 1, i32* %4, !dbg !35";
+"  %1 = bitcast i8* %0 to [3 x [3 x i32]]*, !dbg !35" -> "  %5 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 1, !dbg !35";
+"  %5 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 1, !dbg !35" -> "  %6 = getelementptr [3 x i32], [3 x i32]* %5, i32 0, i32 0, !dbg !35";
+"  %6 = getelementptr [3 x i32], [3 x i32]* %5, i32 0, i32 0, !dbg !35" -> "  store i32 -2, i32* %6, !dbg !35";
+"  %5 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 1, !dbg !35" -> "  %7 = getelementptr [3 x i32], [3 x i32]* %5, i32 0, i32 2, !dbg !35";
+"  %7 = getelementptr [3 x i32], [3 x i32]* %5, i32 0, i32 2, !dbg !35" -> "  store i32 2, i32* %7, !dbg !35";
+"  %1 = bitcast i8* %0 to [3 x [3 x i32]]*, !dbg !35" -> "  %8 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 2, !dbg !35";
+"  %8 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 2, !dbg !35" -> "  %9 = getelementptr [3 x i32], [3 x i32]* %8, i32 0, i32 0, !dbg !35";
+"  %9 = getelementptr [3 x i32], [3 x i32]* %8, i32 0, i32 0, !dbg !35" -> "  store i32 -1, i32* %9, !dbg !35";
+"  %8 = getelementptr [3 x [3 x i32]], [3 x [3 x i32]]* %1, i32 0, i32 2, !dbg !35" -> "  %10 = getelementptr [3 x i32], [3 x i32]* %8, i32 0, i32 2, !dbg !35";
+"  %10 = getelementptr [3 x i32], [3 x i32]* %8, i32 0, i32 2, !dbg !35" -> "  store i32 1, i32* %10, !dbg !35";
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata double* %pixel_value, metadata !256, metadata !34), !dbg !258";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata double* %min, metadata !259, metadata !34), !dbg !260";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata double* %max, metadata !261, metadata !34), !dbg !262";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %x, metadata !263, metadata !34), !dbg !264";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %y, metadata !265, metadata !34), !dbg !266";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %i, metadata !267, metadata !34), !dbg !268";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %j, metadata !269, metadata !34), !dbg !270";
+"llvm.dbg.declare" [ color = red ]
+"printf" -> "  %call = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([45 x i8], [45 x i8]* @.str.24, i32 0, i32 0)), !dbg !51";
+"printf" [ color = red ]
+"  %min = alloca double, align 8" -> "  store double 0x7FEFFFFFFFFFFFFF, double* %min, align 8, !dbg !52";
+"min" -> "  store double 0x7FEFFFFFFFFFFFFF, double* %min, align 8, !dbg !52";
+"min" [ color = red ]
+"  %max = alloca double, align 8" -> "  store double 0xFFEFFFFFFFFFFFFF, double* %max, align 8, !dbg !53";
+"max" -> "  store double 0xFFEFFFFFFFFFFFFF, double* %max, align 8, !dbg !53";
+"max" [ color = red ]
+"  %y = alloca i32, align 4" -> "  store i32 1, i32* %y, align 4, !dbg !54";
+"y" -> "  store i32 1, i32* %y, align 4, !dbg !54";
+"y" [ color = red ]
+"for.cond" -> "  br label %for.cond, !dbg !56";
+"for.cond" [ color = red ]
+"  %y = alloca i32, align 4" -> "  %11 = load i32, i32* %y, align 4, !dbg !57";
+"y" -> "  %11 = load i32, i32* %y, align 4, !dbg !57";
+"y" [ color = red ]
+"y_size1" -> "  %12 = load i32, i32* @y_size1, align 4, !dbg !59";
+"y_size1" [ color = red ]
+"  %12 = load i32, i32* @y_size1, align 4, !dbg !59" -> "  %sub = sub nsw i32 %12, 1, !dbg !60";
+"  %11 = load i32, i32* %y, align 4, !dbg !57" -> "  %cmp = icmp slt i32 %11, %sub, !dbg !61";
+"  %sub = sub nsw i32 %12, 1, !dbg !60" -> "  %cmp = icmp slt i32 %11, %sub, !dbg !61";
+"sub" -> "  %cmp = icmp slt i32 %11, %sub, !dbg !61";
+"sub" [ color = red ]
+"  %cmp = icmp slt i32 %11, %sub, !dbg !61" -> "  br i1 %cmp, label %for.body, label %for.end34, !dbg !62";
+"cmp" -> "  br i1 %cmp, label %for.body, label %for.end34, !dbg !62";
+"cmp" [ color = red ]
+"for.end34" -> "  br i1 %cmp, label %for.body, label %for.end34, !dbg !62";
+"for.end34" [ color = red ]
+"for.body" -> "  br i1 %cmp, label %for.body, label %for.end34, !dbg !62";
+"for.body" [ color = red ]
+"  %x = alloca i32, align 4" -> "  store i32 1, i32* %x, align 4, !dbg !63";
+"x" -> "  store i32 1, i32* %x, align 4, !dbg !63";
+"x" [ color = red ]
+"for.cond1" -> "  br label %for.cond1, !dbg !66";
+"for.cond1" [ color = red ]
+"  %x = alloca i32, align 4" -> "  %13 = load i32, i32* %x, align 4, !dbg !67";
+"x" -> "  %13 = load i32, i32* %x, align 4, !dbg !67";
+"x" [ color = red ]
+"x_size1" -> "  %14 = load i32, i32* @x_size1, align 4, !dbg !69";
+"x_size1" [ color = red ]
+"  %14 = load i32, i32* @x_size1, align 4, !dbg !69" -> "  %sub2 = sub nsw i32 %14, 1, !dbg !70";
+"  %13 = load i32, i32* %x, align 4, !dbg !67" -> "  %cmp3 = icmp slt i32 %13, %sub2, !dbg !71";
+"  %sub2 = sub nsw i32 %14, 1, !dbg !70" -> "  %cmp3 = icmp slt i32 %13, %sub2, !dbg !71";
+"sub2" -> "  %cmp3 = icmp slt i32 %13, %sub2, !dbg !71";
+"sub2" [ color = red ]
+"  %cmp3 = icmp slt i32 %13, %sub2, !dbg !71" -> "  br i1 %cmp3, label %for.body4, label %for.end31, !dbg !72";
+"cmp3" -> "  br i1 %cmp3, label %for.body4, label %for.end31, !dbg !72";
+"cmp3" [ color = red ]
+"for.end31" -> "  br i1 %cmp3, label %for.body4, label %for.end31, !dbg !72";
+"for.end31" [ color = red ]
+"for.body4" -> "  br i1 %cmp3, label %for.body4, label %for.end31, !dbg !72";
+"for.body4" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  store double 0.000000e+00, double* %pixel_value, align 8, !dbg !73";
+"pixel_value" -> "  store double 0.000000e+00, double* %pixel_value, align 8, !dbg !73";
+"pixel_value" [ color = red ]
+"  %j = alloca i32, align 4" -> "  store i32 -1, i32* %j, align 4, !dbg !75";
+"j" -> "  store i32 -1, i32* %j, align 4, !dbg !75";
+"j" [ color = red ]
+"for.cond5" -> "  br label %for.cond5, !dbg !77";
+"for.cond5" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %15 = load i32, i32* %j, align 4, !dbg !78";
+"j" -> "  %15 = load i32, i32* %j, align 4, !dbg !78";
+"j" [ color = red ]
+"  %15 = load i32, i32* %j, align 4, !dbg !78" -> "  %cmp6 = icmp sle i32 %15, 1, !dbg !80";
+"  %cmp6 = icmp sle i32 %15, 1, !dbg !80" -> "  br i1 %cmp6, label %for.body7, label %for.end24, !dbg !81";
+"cmp6" -> "  br i1 %cmp6, label %for.body7, label %for.end24, !dbg !81";
+"cmp6" [ color = red ]
+"for.end24" -> "  br i1 %cmp6, label %for.body7, label %for.end24, !dbg !81";
+"for.end24" [ color = red ]
+"for.body7" -> "  br i1 %cmp6, label %for.body7, label %for.end24, !dbg !81";
+"for.body7" [ color = red ]
+"  %i = alloca i32, align 4" -> "  store i32 -1, i32* %i, align 4, !dbg !82";
+"i" -> "  store i32 -1, i32* %i, align 4, !dbg !82";
+"i" [ color = red ]
+"for.cond8" -> "  br label %for.cond8, !dbg !85";
+"for.cond8" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %16 = load i32, i32* %i, align 4, !dbg !86";
+"i" -> "  %16 = load i32, i32* %i, align 4, !dbg !86";
+"i" [ color = red ]
+"  %16 = load i32, i32* %i, align 4, !dbg !86" -> "  %cmp9 = icmp sle i32 %16, 1, !dbg !88";
+"  %cmp9 = icmp sle i32 %16, 1, !dbg !88" -> "  br i1 %cmp9, label %for.body10, label %for.end, !dbg !89";
+"cmp9" -> "  br i1 %cmp9, label %for.body10, label %for.end, !dbg !89";
+"cmp9" [ color = red ]
+"for.end" -> "  br i1 %cmp9, label %for.body10, label %for.end, !dbg !89";
+"for.end" [ color = red ]
+"for.body10" -> "  br i1 %cmp9, label %for.body10, label %for.end, !dbg !89";
+"for.body10" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %17 = load i32, i32* %j, align 4, !dbg !90";
+"j" -> "  %17 = load i32, i32* %j, align 4, !dbg !90";
+"j" [ color = red ]
+"  %17 = load i32, i32* %j, align 4, !dbg !90" -> "  %add = add nsw i32 %17, 1, !dbg !92";
+"  %add = add nsw i32 %17, 1, !dbg !92" -> "  %idxprom = sext i32 %add to i64, !dbg !93";
+"add" -> "  %idxprom = sext i32 %add to i64, !dbg !93";
+"add" [ color = red ]
+"  %weight = alloca [3 x [3 x i32]], align 16" -> "  %arrayidx = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom, !dbg !93";
+"weight" -> "  %arrayidx = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom, !dbg !93";
+"weight" [ color = red ]
+"  %idxprom = sext i32 %add to i64, !dbg !93" -> "  %arrayidx = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom, !dbg !93";
+"idxprom" -> "  %arrayidx = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom, !dbg !93";
+"idxprom" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %18 = load i32, i32* %i, align 4, !dbg !94";
+"i" -> "  %18 = load i32, i32* %i, align 4, !dbg !94";
+"i" [ color = red ]
+"  %18 = load i32, i32* %i, align 4, !dbg !94" -> "  %add11 = add nsw i32 %18, 1, !dbg !95";
+"  %add11 = add nsw i32 %18, 1, !dbg !95" -> "  %idxprom12 = sext i32 %add11 to i64, !dbg !93";
+"add11" -> "  %idxprom12 = sext i32 %add11 to i64, !dbg !93";
+"add11" [ color = red ]
+"  %arrayidx = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom, !dbg !93" -> "  %arrayidx13 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx, i64 0, i64 %idxprom12, !dbg !93";
+"arrayidx" -> "  %arrayidx13 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx, i64 0, i64 %idxprom12, !dbg !93";
+"arrayidx" [ color = red ]
+"  %idxprom12 = sext i32 %add11 to i64, !dbg !93" -> "  %arrayidx13 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx, i64 0, i64 %idxprom12, !dbg !93";
+"idxprom12" -> "  %arrayidx13 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx, i64 0, i64 %idxprom12, !dbg !93";
+"idxprom12" [ color = red ]
+"  %arrayidx13 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx, i64 0, i64 %idxprom12, !dbg !93" -> "  %19 = load i32, i32* %arrayidx13, align 4, !dbg !93";
+"arrayidx13" -> "  %19 = load i32, i32* %arrayidx13, align 4, !dbg !93";
+"arrayidx13" [ color = red ]
+"  %y = alloca i32, align 4" -> "  %20 = load i32, i32* %y, align 4, !dbg !96";
+"y" -> "  %20 = load i32, i32* %y, align 4, !dbg !96";
+"y" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %21 = load i32, i32* %j, align 4, !dbg !97";
+"j" -> "  %21 = load i32, i32* %j, align 4, !dbg !97";
+"j" [ color = red ]
+"  %20 = load i32, i32* %y, align 4, !dbg !96" -> "  %add14 = add nsw i32 %20, %21, !dbg !98";
+"  %21 = load i32, i32* %j, align 4, !dbg !97" -> "  %add14 = add nsw i32 %20, %21, !dbg !98";
+"  %add14 = add nsw i32 %20, %21, !dbg !98" -> "  %idxprom15 = sext i32 %add14 to i64, !dbg !99";
+"add14" -> "  %idxprom15 = sext i32 %add14 to i64, !dbg !99";
+"add14" [ color = red ]
+"image1" -> "  %arrayidx16 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom15, !dbg !99";
+"image1" [ color = red ]
+"  %idxprom15 = sext i32 %add14 to i64, !dbg !99" -> "  %arrayidx16 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom15, !dbg !99";
+"idxprom15" -> "  %arrayidx16 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom15, !dbg !99";
+"idxprom15" [ color = red ]
+"  %x = alloca i32, align 4" -> "  %22 = load i32, i32* %x, align 4, !dbg !100";
+"x" -> "  %22 = load i32, i32* %x, align 4, !dbg !100";
+"x" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %23 = load i32, i32* %i, align 4, !dbg !101";
+"i" -> "  %23 = load i32, i32* %i, align 4, !dbg !101";
+"i" [ color = red ]
+"  %22 = load i32, i32* %x, align 4, !dbg !100" -> "  %add17 = add nsw i32 %22, %23, !dbg !102";
+"  %23 = load i32, i32* %i, align 4, !dbg !101" -> "  %add17 = add nsw i32 %22, %23, !dbg !102";
+"  %add17 = add nsw i32 %22, %23, !dbg !102" -> "  %idxprom18 = sext i32 %add17 to i64, !dbg !99";
+"add17" -> "  %idxprom18 = sext i32 %add17 to i64, !dbg !99";
+"add17" [ color = red ]
+"  %arrayidx16 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom15, !dbg !99" -> "  %arrayidx19 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx16, i64 0, i64 %idxprom18, !dbg !99";
+"arrayidx16" -> "  %arrayidx19 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx16, i64 0, i64 %idxprom18, !dbg !99";
+"arrayidx16" [ color = red ]
+"  %idxprom18 = sext i32 %add17 to i64, !dbg !99" -> "  %arrayidx19 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx16, i64 0, i64 %idxprom18, !dbg !99";
+"idxprom18" -> "  %arrayidx19 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx16, i64 0, i64 %idxprom18, !dbg !99";
+"idxprom18" [ color = red ]
+"  %arrayidx19 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx16, i64 0, i64 %idxprom18, !dbg !99" -> "  %24 = load i8, i8* %arrayidx19, align 1, !dbg !99";
+"arrayidx19" -> "  %24 = load i8, i8* %arrayidx19, align 1, !dbg !99";
+"arrayidx19" [ color = red ]
+"  %24 = load i8, i8* %arrayidx19, align 1, !dbg !99" -> "  %conv = zext i8 %24 to i32, !dbg !103";
+"  %19 = load i32, i32* %arrayidx13, align 4, !dbg !93" -> "  %mul = mul nsw i32 %19, %conv, !dbg !104";
+"  %conv = zext i8 %24 to i32, !dbg !103" -> "  %mul = mul nsw i32 %19, %conv, !dbg !104";
+"conv" -> "  %mul = mul nsw i32 %19, %conv, !dbg !104";
+"conv" [ color = red ]
+"  %mul = mul nsw i32 %19, %conv, !dbg !104" -> "  %conv20 = sitofp i32 %mul to double, !dbg !93";
+"mul" -> "  %conv20 = sitofp i32 %mul to double, !dbg !93";
+"mul" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  %25 = load double, double* %pixel_value, align 8, !dbg !105";
+"pixel_value" -> "  %25 = load double, double* %pixel_value, align 8, !dbg !105";
+"pixel_value" [ color = red ]
+"  %25 = load double, double* %pixel_value, align 8, !dbg !105" -> "  %add21 = fadd double %25, %conv20, !dbg !105";
+"  %conv20 = sitofp i32 %mul to double, !dbg !93" -> "  %add21 = fadd double %25, %conv20, !dbg !105";
+"conv20" -> "  %add21 = fadd double %25, %conv20, !dbg !105";
+"conv20" [ color = red ]
+"  %add21 = fadd double %25, %conv20, !dbg !105" -> "  store double %add21, double* %pixel_value, align 8, !dbg !105";
+"add21" -> "  store double %add21, double* %pixel_value, align 8, !dbg !105";
+"add21" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  store double %add21, double* %pixel_value, align 8, !dbg !105";
+"pixel_value" -> "  store double %add21, double* %pixel_value, align 8, !dbg !105";
+"pixel_value" [ color = red ]
+"for.inc" -> "  br label %for.inc, !dbg !106";
+"for.inc" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %26 = load i32, i32* %i, align 4, !dbg !107";
+"i" -> "  %26 = load i32, i32* %i, align 4, !dbg !107";
+"i" [ color = red ]
+"  %26 = load i32, i32* %i, align 4, !dbg !107" -> "  %inc = add nsw i32 %26, 1, !dbg !107";
+"  %inc = add nsw i32 %26, 1, !dbg !107" -> "  store i32 %inc, i32* %i, align 4, !dbg !107";
+"inc" -> "  store i32 %inc, i32* %i, align 4, !dbg !107";
+"inc" [ color = red ]
+"  %i = alloca i32, align 4" -> "  store i32 %inc, i32* %i, align 4, !dbg !107";
+"i" -> "  store i32 %inc, i32* %i, align 4, !dbg !107";
+"i" [ color = red ]
+"for.cond8" -> "  br label %for.cond8, !dbg !108, !llvm.loop !109";
+"for.cond8" [ color = red ]
+"for.inc22" -> "  br label %for.inc22, !dbg !111";
+"for.inc22" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %27 = load i32, i32* %j, align 4, !dbg !112";
+"j" -> "  %27 = load i32, i32* %j, align 4, !dbg !112";
+"j" [ color = red ]
+"  %27 = load i32, i32* %j, align 4, !dbg !112" -> "  %inc23 = add nsw i32 %27, 1, !dbg !112";
+"  %inc23 = add nsw i32 %27, 1, !dbg !112" -> "  store i32 %inc23, i32* %j, align 4, !dbg !112";
+"inc23" -> "  store i32 %inc23, i32* %j, align 4, !dbg !112";
+"inc23" [ color = red ]
+"  %j = alloca i32, align 4" -> "  store i32 %inc23, i32* %j, align 4, !dbg !112";
+"j" -> "  store i32 %inc23, i32* %j, align 4, !dbg !112";
+"j" [ color = red ]
+"for.cond5" -> "  br label %for.cond5, !dbg !113, !llvm.loop !114";
+"for.cond5" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  %28 = load double, double* %pixel_value, align 8, !dbg !116";
+"pixel_value" -> "  %28 = load double, double* %pixel_value, align 8, !dbg !116";
+"pixel_value" [ color = red ]
+"  %min = alloca double, align 8" -> "  %29 = load double, double* %min, align 8, !dbg !118";
+"min" -> "  %29 = load double, double* %min, align 8, !dbg !118";
+"min" [ color = red ]
+"  %28 = load double, double* %pixel_value, align 8, !dbg !116" -> "  %cmp25 = fcmp olt double %28, %29, !dbg !119";
+"  %29 = load double, double* %min, align 8, !dbg !118" -> "  %cmp25 = fcmp olt double %28, %29, !dbg !119";
+"  %cmp25 = fcmp olt double %28, %29, !dbg !119" -> "  br i1 %cmp25, label %if.then, label %if.end, !dbg !120";
+"cmp25" -> "  br i1 %cmp25, label %if.then, label %if.end, !dbg !120";
+"cmp25" [ color = red ]
+"if.end" -> "  br i1 %cmp25, label %if.then, label %if.end, !dbg !120";
+"if.end" [ color = red ]
+"if.then" -> "  br i1 %cmp25, label %if.then, label %if.end, !dbg !120";
+"if.then" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  %30 = load double, double* %pixel_value, align 8, !dbg !121";
+"pixel_value" -> "  %30 = load double, double* %pixel_value, align 8, !dbg !121";
+"pixel_value" [ color = red ]
+"  %30 = load double, double* %pixel_value, align 8, !dbg !121" -> "  store double %30, double* %min, align 8, !dbg !122";
+"  %min = alloca double, align 8" -> "  store double %30, double* %min, align 8, !dbg !122";
+"min" -> "  store double %30, double* %min, align 8, !dbg !122";
+"min" [ color = red ]
+"if.end" -> "  br label %if.end, !dbg !123";
+"if.end" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  %31 = load double, double* %pixel_value, align 8, !dbg !124";
+"pixel_value" -> "  %31 = load double, double* %pixel_value, align 8, !dbg !124";
+"pixel_value" [ color = red ]
+"  %max = alloca double, align 8" -> "  %32 = load double, double* %max, align 8, !dbg !126";
+"max" -> "  %32 = load double, double* %max, align 8, !dbg !126";
+"max" [ color = red ]
+"  %31 = load double, double* %pixel_value, align 8, !dbg !124" -> "  %cmp26 = fcmp ogt double %31, %32, !dbg !127";
+"  %32 = load double, double* %max, align 8, !dbg !126" -> "  %cmp26 = fcmp ogt double %31, %32, !dbg !127";
+"  %cmp26 = fcmp ogt double %31, %32, !dbg !127" -> "  br i1 %cmp26, label %if.then27, label %if.end28, !dbg !128";
+"cmp26" -> "  br i1 %cmp26, label %if.then27, label %if.end28, !dbg !128";
+"cmp26" [ color = red ]
+"if.end28" -> "  br i1 %cmp26, label %if.then27, label %if.end28, !dbg !128";
+"if.end28" [ color = red ]
+"if.then27" -> "  br i1 %cmp26, label %if.then27, label %if.end28, !dbg !128";
+"if.then27" [ color = red ]
+"  %pixel_value = alloca double, align 8" -> "  %33 = load double, double* %pixel_value, align 8, !dbg !129";
+"pixel_value" -> "  %33 = load double, double* %pixel_value, align 8, !dbg !129";
+"pixel_value" [ color = red ]
+"  %33 = load double, double* %pixel_value, align 8, !dbg !129" -> "  store double %33, double* %max, align 8, !dbg !130";
+"  %max = alloca double, align 8" -> "  store double %33, double* %max, align 8, !dbg !130";
+"max" -> "  store double %33, double* %max, align 8, !dbg !130";
+"max" [ color = red ]
+"if.end28" -> "  br label %if.end28, !dbg !131";
+"if.end28" [ color = red ]
+"for.inc29" -> "  br label %for.inc29, !dbg !132";
+"for.inc29" [ color = red ]
+"  %x = alloca i32, align 4" -> "  %34 = load i32, i32* %x, align 4, !dbg !133";
+"x" -> "  %34 = load i32, i32* %x, align 4, !dbg !133";
+"x" [ color = red ]
+"  %34 = load i32, i32* %x, align 4, !dbg !133" -> "  %inc30 = add nsw i32 %34, 1, !dbg !133";
+"  %inc30 = add nsw i32 %34, 1, !dbg !133" -> "  store i32 %inc30, i32* %x, align 4, !dbg !133";
+"inc30" -> "  store i32 %inc30, i32* %x, align 4, !dbg !133";
+"inc30" [ color = red ]
+"  %x = alloca i32, align 4" -> "  store i32 %inc30, i32* %x, align 4, !dbg !133";
+"x" -> "  store i32 %inc30, i32* %x, align 4, !dbg !133";
+"x" [ color = red ]
+"for.cond1" -> "  br label %for.cond1, !dbg !134, !llvm.loop !135";
+"for.cond1" [ color = red ]
+"for.inc32" -> "  br label %for.inc32, !dbg !137";
+"for.inc32" [ color = red ]
+"  %y = alloca i32, align 4" -> "  %35 = load i32, i32* %y, align 4, !dbg !138";
+"y" -> "  %35 = load i32, i32* %y, align 4, !dbg !138";
+"y" [ color = red ]
+"  %35 = load i32, i32* %y, align 4, !dbg !138" -> "  %inc33 = add nsw i32 %35, 1, !dbg !138";
+"  %inc33 = add nsw i32 %35, 1, !dbg !138" -> "  store i32 %inc33, i32* %y, align 4, !dbg !138";
+"inc33" -> "  store i32 %inc33, i32* %y, align 4, !dbg !138";
+"inc33" [ color = red ]
+"  %y = alloca i32, align 4" -> "  store i32 %inc33, i32* %y, align 4, !dbg !138";
+"y" -> "  store i32 %inc33, i32* %y, align 4, !dbg !138";
+"y" [ color = red ]
+"for.cond" -> "  br label %for.cond, !dbg !139, !llvm.loop !140";
+"for.cond" [ color = red ]
+"  %max = alloca double, align 8" -> "  %36 = load double, double* %max, align 8, !dbg !142";
+"max" -> "  %36 = load double, double* %max, align 8, !dbg !142";
+"max" [ color = red ]
+"  %min = alloca double, align 8" -> "  %37 = load double, double* %min, align 8, !dbg !144";
+"min" -> "  %37 = load double, double* %min, align 8, !dbg !144";
+"min" [ color = red ]
+"  %36 = load double, double* %max, align 8, !dbg !142" -> "  %sub35 = fsub double %36, %37, !dbg !145";
+"  %37 = load double, double* %min, align 8, !dbg !144" -> "  %sub35 = fsub double %36, %37, !dbg !145";
+"  %sub35 = fsub double %36, %37, !dbg !145" -> "  %conv36 = fptosi double %sub35 to i32, !dbg !146";
+"sub35" -> "  %conv36 = fptosi double %sub35 to i32, !dbg !146";
+"sub35" [ color = red ]
+"  %conv36 = fptosi double %sub35 to i32, !dbg !146" -> "  %cmp37 = icmp eq i32 %conv36, 0, !dbg !147";
+"conv36" -> "  %cmp37 = icmp eq i32 %conv36, 0, !dbg !147";
+"conv36" [ color = red ]
+"  %cmp37 = icmp eq i32 %conv36, 0, !dbg !147" -> "  br i1 %cmp37, label %if.then38, label %if.end40, !dbg !148";
+"cmp37" -> "  br i1 %cmp37, label %if.then38, label %if.end40, !dbg !148";
+"cmp37" [ color = red ]
+"if.end40" -> "  br i1 %cmp37, label %if.then38, label %if.end40, !dbg !148";
+"if.end40" [ color = red ]
+"if.then38" -> "  br i1 %cmp37, label %if.then38, label %if.end40, !dbg !148";
+"if.then38" [ color = red ]
+"printf" -> "  %call39 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([20 x i8], [20 x i8]* @.str.25, i32 0, i32 0)), !dbg !149";
+"printf" [ color = red ]
+"exit" -> "  call void @exit(i32 1) #12, !dbg !151";
+"exit" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %xa, metadata !372, metadata !34), !dbg !373";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata i32* %ya, metadata !374, metadata !34), !dbg !375";
+"llvm.dbg.declare" [ color = red ]
+"llvm.dbg.declare" -> "  call void @llvm.dbg.declare(metadata double* %pixel_value_app, metadata !376, metadata !34), !dbg !377";
+"llvm.dbg.declare" [ color = red ]
+"x_size1" -> "  %38 = load i32, i32* @x_size1, align 4, !dbg !158";
+"x_size1" [ color = red ]
+"  %38 = load i32, i32* @x_size1, align 4, !dbg !158" -> "  store i32 %38, i32* @x_size2, align 4, !dbg !159";
+"x_size2" -> "  store i32 %38, i32* @x_size2, align 4, !dbg !159";
+"x_size2" [ color = red ]
+"y_size1" -> "  %39 = load i32, i32* @y_size1, align 4, !dbg !160";
+"y_size1" [ color = red ]
+"  %39 = load i32, i32* @y_size1, align 4, !dbg !160" -> "  store i32 %39, i32* @y_size2, align 4, !dbg !161";
+"y_size2" -> "  store i32 %39, i32* @y_size2, align 4, !dbg !161";
+"y_size2" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  store i32 0, i32* %ya, align 4, !dbg !162";
+"ya" -> "  store i32 0, i32* %ya, align 4, !dbg !162";
+"ya" [ color = red ]
+"for.cond41" -> "  br label %for.cond41, !dbg !164";
+"for.cond41" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %40 = load i32, i32* %ya, align 4, !dbg !165";
+"ya" -> "  %40 = load i32, i32* %ya, align 4, !dbg !165";
+"ya" [ color = red ]
+"y_size2" -> "  %41 = load i32, i32* @y_size2, align 4, !dbg !167";
+"y_size2" [ color = red ]
+"  %40 = load i32, i32* %ya, align 4, !dbg !165" -> "  %cmp42 = icmp slt i32 %40, %41, !dbg !168";
+"  %41 = load i32, i32* @y_size2, align 4, !dbg !167" -> "  %cmp42 = icmp slt i32 %40, %41, !dbg !168";
+"  %cmp42 = icmp slt i32 %40, %41, !dbg !168" -> "  br i1 %cmp42, label %for.body43, label %for.end56, !dbg !169";
+"cmp42" -> "  br i1 %cmp42, label %for.body43, label %for.end56, !dbg !169";
+"cmp42" [ color = red ]
+"for.end56" -> "  br i1 %cmp42, label %for.body43, label %for.end56, !dbg !169";
+"for.end56" [ color = red ]
+"for.body43" -> "  br i1 %cmp42, label %for.body43, label %for.end56, !dbg !169";
+"for.body43" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  store i32 0, i32* %xa, align 4, !dbg !170";
+"xa" -> "  store i32 0, i32* %xa, align 4, !dbg !170";
+"xa" [ color = red ]
+"for.cond44" -> "  br label %for.cond44, !dbg !173";
+"for.cond44" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %42 = load i32, i32* %xa, align 4, !dbg !174";
+"xa" -> "  %42 = load i32, i32* %xa, align 4, !dbg !174";
+"xa" [ color = red ]
+"x_size2" -> "  %43 = load i32, i32* @x_size2, align 4, !dbg !176";
+"x_size2" [ color = red ]
+"  %42 = load i32, i32* %xa, align 4, !dbg !174" -> "  %cmp45 = icmp slt i32 %42, %43, !dbg !177";
+"  %43 = load i32, i32* @x_size2, align 4, !dbg !176" -> "  %cmp45 = icmp slt i32 %42, %43, !dbg !177";
+"  %cmp45 = icmp slt i32 %42, %43, !dbg !177" -> "  br i1 %cmp45, label %for.body46, label %for.end53, !dbg !178";
+"cmp45" -> "  br i1 %cmp45, label %for.body46, label %for.end53, !dbg !178";
+"cmp45" [ color = red ]
+"for.end53" -> "  br i1 %cmp45, label %for.body46, label %for.end53, !dbg !178";
+"for.end53" [ color = red ]
+"for.body46" -> "  br i1 %cmp45, label %for.body46, label %for.end53, !dbg !178";
+"for.body46" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %44 = load i32, i32* %ya, align 4, !dbg !179";
+"ya" -> "  %44 = load i32, i32* %ya, align 4, !dbg !179";
+"ya" [ color = red ]
+"  %44 = load i32, i32* %ya, align 4, !dbg !179" -> "  %idxprom47 = sext i32 %44 to i64, !dbg !181";
+"image2" -> "  %arrayidx48 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom47, !dbg !181";
+"image2" [ color = red ]
+"  %idxprom47 = sext i32 %44 to i64, !dbg !181" -> "  %arrayidx48 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom47, !dbg !181";
+"idxprom47" -> "  %arrayidx48 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom47, !dbg !181";
+"idxprom47" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %45 = load i32, i32* %xa, align 4, !dbg !182";
+"xa" -> "  %45 = load i32, i32* %xa, align 4, !dbg !182";
+"xa" [ color = red ]
+"  %45 = load i32, i32* %xa, align 4, !dbg !182" -> "  %idxprom49 = sext i32 %45 to i64, !dbg !181";
+"  %arrayidx48 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom47, !dbg !181" -> "  %arrayidx50 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx48, i64 0, i64 %idxprom49, !dbg !181";
+"arrayidx48" -> "  %arrayidx50 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx48, i64 0, i64 %idxprom49, !dbg !181";
+"arrayidx48" [ color = red ]
+"  %idxprom49 = sext i32 %45 to i64, !dbg !181" -> "  %arrayidx50 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx48, i64 0, i64 %idxprom49, !dbg !181";
+"idxprom49" -> "  %arrayidx50 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx48, i64 0, i64 %idxprom49, !dbg !181";
+"idxprom49" [ color = red ]
+"  %arrayidx50 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx48, i64 0, i64 %idxprom49, !dbg !181" -> "  store i8 0, i8* %arrayidx50, align 1, !dbg !183";
+"arrayidx50" -> "  store i8 0, i8* %arrayidx50, align 1, !dbg !183";
+"arrayidx50" [ color = red ]
+"for.inc51" -> "  br label %for.inc51, !dbg !184";
+"for.inc51" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %46 = load i32, i32* %xa, align 4, !dbg !185";
+"xa" -> "  %46 = load i32, i32* %xa, align 4, !dbg !185";
+"xa" [ color = red ]
+"  %46 = load i32, i32* %xa, align 4, !dbg !185" -> "  %inc52 = add nsw i32 %46, 1, !dbg !185";
+"  %inc52 = add nsw i32 %46, 1, !dbg !185" -> "  store i32 %inc52, i32* %xa, align 4, !dbg !185";
+"inc52" -> "  store i32 %inc52, i32* %xa, align 4, !dbg !185";
+"inc52" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  store i32 %inc52, i32* %xa, align 4, !dbg !185";
+"xa" -> "  store i32 %inc52, i32* %xa, align 4, !dbg !185";
+"xa" [ color = red ]
+"for.cond44" -> "  br label %for.cond44, !dbg !186, !llvm.loop !187";
+"for.cond44" [ color = red ]
+"for.inc54" -> "  br label %for.inc54, !dbg !189";
+"for.inc54" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %47 = load i32, i32* %ya, align 4, !dbg !190";
+"ya" -> "  %47 = load i32, i32* %ya, align 4, !dbg !190";
+"ya" [ color = red ]
+"  %47 = load i32, i32* %ya, align 4, !dbg !190" -> "  %inc55 = add nsw i32 %47, 1, !dbg !190";
+"  %inc55 = add nsw i32 %47, 1, !dbg !190" -> "  store i32 %inc55, i32* %ya, align 4, !dbg !190";
+"inc55" -> "  store i32 %inc55, i32* %ya, align 4, !dbg !190";
+"inc55" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  store i32 %inc55, i32* %ya, align 4, !dbg !190";
+"ya" -> "  store i32 %inc55, i32* %ya, align 4, !dbg !190";
+"ya" [ color = red ]
+"for.cond41" -> "  br label %for.cond41, !dbg !191, !llvm.loop !192";
+"for.cond41" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  store i32 1, i32* %ya, align 4, !dbg !194";
+"ya" -> "  store i32 1, i32* %ya, align 4, !dbg !194";
+"ya" [ color = red ]
+"for.cond57" -> "  br label %for.cond57, !dbg !196";
+"for.cond57" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %48 = load i32, i32* %ya, align 4, !dbg !197";
+"ya" -> "  %48 = load i32, i32* %ya, align 4, !dbg !197";
+"ya" [ color = red ]
+"y_size1" -> "  %49 = load i32, i32* @y_size1, align 4, !dbg !199";
+"y_size1" [ color = red ]
+"  %49 = load i32, i32* @y_size1, align 4, !dbg !199" -> "  %sub58 = sub nsw i32 %49, 1, !dbg !200";
+"  %48 = load i32, i32* %ya, align 4, !dbg !197" -> "  %cmp59 = icmp slt i32 %48, %sub58, !dbg !201";
+"  %sub58 = sub nsw i32 %49, 1, !dbg !200" -> "  %cmp59 = icmp slt i32 %48, %sub58, !dbg !201";
+"sub58" -> "  %cmp59 = icmp slt i32 %48, %sub58, !dbg !201";
+"sub58" [ color = red ]
+"  %cmp59 = icmp slt i32 %48, %sub58, !dbg !201" -> "  br i1 %cmp59, label %for.body60, label %for.end106, !dbg !202";
+"cmp59" -> "  br i1 %cmp59, label %for.body60, label %for.end106, !dbg !202";
+"cmp59" [ color = red ]
+"for.end106" -> "  br i1 %cmp59, label %for.body60, label %for.end106, !dbg !202";
+"for.end106" [ color = red ]
+"for.body60" -> "  br i1 %cmp59, label %for.body60, label %for.end106, !dbg !202";
+"for.body60" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  store i32 1, i32* %xa, align 4, !dbg !203";
+"xa" -> "  store i32 1, i32* %xa, align 4, !dbg !203";
+"xa" [ color = red ]
+"for.cond61" -> "  br label %for.cond61, !dbg !206";
+"for.cond61" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %50 = load i32, i32* %xa, align 4, !dbg !207";
+"xa" -> "  %50 = load i32, i32* %xa, align 4, !dbg !207";
+"xa" [ color = red ]
+"x_size1" -> "  %51 = load i32, i32* @x_size1, align 4, !dbg !209";
+"x_size1" [ color = red ]
+"  %51 = load i32, i32* @x_size1, align 4, !dbg !209" -> "  %sub62 = sub nsw i32 %51, 1, !dbg !210";
+"  %50 = load i32, i32* %xa, align 4, !dbg !207" -> "  %cmp63 = icmp slt i32 %50, %sub62, !dbg !211";
+"  %sub62 = sub nsw i32 %51, 1, !dbg !210" -> "  %cmp63 = icmp slt i32 %50, %sub62, !dbg !211";
+"sub62" -> "  %cmp63 = icmp slt i32 %50, %sub62, !dbg !211";
+"sub62" [ color = red ]
+"  %cmp63 = icmp slt i32 %50, %sub62, !dbg !211" -> "  br i1 %cmp63, label %for.body64, label %for.end103, !dbg !212";
+"cmp63" -> "  br i1 %cmp63, label %for.body64, label %for.end103, !dbg !212";
+"cmp63" [ color = red ]
+"for.end103" -> "  br i1 %cmp63, label %for.body64, label %for.end103, !dbg !212";
+"for.end103" [ color = red ]
+"for.body64" -> "  br i1 %cmp63, label %for.body64, label %for.end103, !dbg !212";
+"for.body64" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  store double 0.000000e+00, double* %pixel_value_app, align 8, !dbg !213";
+"pixel_value_app" -> "  store double 0.000000e+00, double* %pixel_value_app, align 8, !dbg !213";
+"pixel_value_app" [ color = red ]
+"  %j = alloca i32, align 4" -> "  store i32 -1, i32* %j, align 4, !dbg !215";
+"j" -> "  store i32 -1, i32* %j, align 4, !dbg !215";
+"j" [ color = red ]
+"for.cond65" -> "  br label %for.cond65, !dbg !217";
+"for.cond65" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %52 = load i32, i32* %j, align 4, !dbg !218";
+"j" -> "  %52 = load i32, i32* %j, align 4, !dbg !218";
+"j" [ color = red ]
+"  %52 = load i32, i32* %j, align 4, !dbg !218" -> "  %cmp66 = icmp sle i32 %52, 1, !dbg !220";
+"  %cmp66 = icmp sle i32 %52, 1, !dbg !220" -> "  br i1 %cmp66, label %for.body67, label %for.end92, !dbg !221";
+"cmp66" -> "  br i1 %cmp66, label %for.body67, label %for.end92, !dbg !221";
+"cmp66" [ color = red ]
+"for.end92" -> "  br i1 %cmp66, label %for.body67, label %for.end92, !dbg !221";
+"for.end92" [ color = red ]
+"for.body67" -> "  br i1 %cmp66, label %for.body67, label %for.end92, !dbg !221";
+"for.body67" [ color = red ]
+"  %i = alloca i32, align 4" -> "  store i32 -1, i32* %i, align 4, !dbg !222";
+"i" -> "  store i32 -1, i32* %i, align 4, !dbg !222";
+"i" [ color = red ]
+"for.cond68" -> "  br label %for.cond68, !dbg !225";
+"for.cond68" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %53 = load i32, i32* %i, align 4, !dbg !226";
+"i" -> "  %53 = load i32, i32* %i, align 4, !dbg !226";
+"i" [ color = red ]
+"  %53 = load i32, i32* %i, align 4, !dbg !226" -> "  %cmp69 = icmp sle i32 %53, 1, !dbg !228";
+"  %cmp69 = icmp sle i32 %53, 1, !dbg !228" -> "  br i1 %cmp69, label %for.body70, label %for.end89, !dbg !229";
+"cmp69" -> "  br i1 %cmp69, label %for.body70, label %for.end89, !dbg !229";
+"cmp69" [ color = red ]
+"for.end89" -> "  br i1 %cmp69, label %for.body70, label %for.end89, !dbg !229";
+"for.end89" [ color = red ]
+"for.body70" -> "  br i1 %cmp69, label %for.body70, label %for.end89, !dbg !229";
+"for.body70" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %54 = load i32, i32* %j, align 4, !dbg !230";
+"j" -> "  %54 = load i32, i32* %j, align 4, !dbg !230";
+"j" [ color = red ]
+"  %54 = load i32, i32* %j, align 4, !dbg !230" -> "  %add71 = add nsw i32 %54, 1, !dbg !232";
+"  %add71 = add nsw i32 %54, 1, !dbg !232" -> "  %idxprom72 = sext i32 %add71 to i64, !dbg !233";
+"add71" -> "  %idxprom72 = sext i32 %add71 to i64, !dbg !233";
+"add71" [ color = red ]
+"  %weight = alloca [3 x [3 x i32]], align 16" -> "  %arrayidx73 = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom72, !dbg !233";
+"weight" -> "  %arrayidx73 = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom72, !dbg !233";
+"weight" [ color = red ]
+"  %idxprom72 = sext i32 %add71 to i64, !dbg !233" -> "  %arrayidx73 = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom72, !dbg !233";
+"idxprom72" -> "  %arrayidx73 = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom72, !dbg !233";
+"idxprom72" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %55 = load i32, i32* %i, align 4, !dbg !234";
+"i" -> "  %55 = load i32, i32* %i, align 4, !dbg !234";
+"i" [ color = red ]
+"  %55 = load i32, i32* %i, align 4, !dbg !234" -> "  %add74 = add nsw i32 %55, 1, !dbg !235";
+"  %add74 = add nsw i32 %55, 1, !dbg !235" -> "  %idxprom75 = sext i32 %add74 to i64, !dbg !233";
+"add74" -> "  %idxprom75 = sext i32 %add74 to i64, !dbg !233";
+"add74" [ color = red ]
+"  %arrayidx73 = getelementptr inbounds [3 x [3 x i32]], [3 x [3 x i32]]* %weight, i64 0, i64 %idxprom72, !dbg !233" -> "  %arrayidx76 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx73, i64 0, i64 %idxprom75, !dbg !233";
+"arrayidx73" -> "  %arrayidx76 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx73, i64 0, i64 %idxprom75, !dbg !233";
+"arrayidx73" [ color = red ]
+"  %idxprom75 = sext i32 %add74 to i64, !dbg !233" -> "  %arrayidx76 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx73, i64 0, i64 %idxprom75, !dbg !233";
+"idxprom75" -> "  %arrayidx76 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx73, i64 0, i64 %idxprom75, !dbg !233";
+"idxprom75" [ color = red ]
+"  %arrayidx76 = getelementptr inbounds [3 x i32], [3 x i32]* %arrayidx73, i64 0, i64 %idxprom75, !dbg !233" -> "  %56 = load i32, i32* %arrayidx76, align 4, !dbg !233";
+"arrayidx76" -> "  %56 = load i32, i32* %arrayidx76, align 4, !dbg !233";
+"arrayidx76" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %57 = load i32, i32* %ya, align 4, !dbg !236";
+"ya" -> "  %57 = load i32, i32* %ya, align 4, !dbg !236";
+"ya" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %58 = load i32, i32* %j, align 4, !dbg !237";
+"j" -> "  %58 = load i32, i32* %j, align 4, !dbg !237";
+"j" [ color = red ]
+"  %57 = load i32, i32* %ya, align 4, !dbg !236" -> "  %add77 = add nsw i32 %57, %58, !dbg !238";
+"  %58 = load i32, i32* %j, align 4, !dbg !237" -> "  %add77 = add nsw i32 %57, %58, !dbg !238";
+"  %add77 = add nsw i32 %57, %58, !dbg !238" -> "  %idxprom78 = sext i32 %add77 to i64, !dbg !239";
+"add77" -> "  %idxprom78 = sext i32 %add77 to i64, !dbg !239";
+"add77" [ color = red ]
+"image1" -> "  %arrayidx79 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom78, !dbg !239";
+"image1" [ color = red ]
+"  %idxprom78 = sext i32 %add77 to i64, !dbg !239" -> "  %arrayidx79 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom78, !dbg !239";
+"idxprom78" -> "  %arrayidx79 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom78, !dbg !239";
+"idxprom78" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %59 = load i32, i32* %xa, align 4, !dbg !240";
+"xa" -> "  %59 = load i32, i32* %xa, align 4, !dbg !240";
+"xa" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %60 = load i32, i32* %i, align 4, !dbg !241";
+"i" -> "  %60 = load i32, i32* %i, align 4, !dbg !241";
+"i" [ color = red ]
+"  %59 = load i32, i32* %xa, align 4, !dbg !240" -> "  %add80 = add nsw i32 %59, %60, !dbg !242";
+"  %60 = load i32, i32* %i, align 4, !dbg !241" -> "  %add80 = add nsw i32 %59, %60, !dbg !242";
+"  %add80 = add nsw i32 %59, %60, !dbg !242" -> "  %idxprom81 = sext i32 %add80 to i64, !dbg !239";
+"add80" -> "  %idxprom81 = sext i32 %add80 to i64, !dbg !239";
+"add80" [ color = red ]
+"  %arrayidx79 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image1, i64 0, i64 %idxprom78, !dbg !239" -> "  %arrayidx82 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx79, i64 0, i64 %idxprom81, !dbg !239";
+"arrayidx79" -> "  %arrayidx82 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx79, i64 0, i64 %idxprom81, !dbg !239";
+"arrayidx79" [ color = red ]
+"  %idxprom81 = sext i32 %add80 to i64, !dbg !239" -> "  %arrayidx82 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx79, i64 0, i64 %idxprom81, !dbg !239";
+"idxprom81" -> "  %arrayidx82 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx79, i64 0, i64 %idxprom81, !dbg !239";
+"idxprom81" [ color = red ]
+"  %arrayidx82 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx79, i64 0, i64 %idxprom81, !dbg !239" -> "  %61 = load i8, i8* %arrayidx82, align 1, !dbg !239";
+"arrayidx82" -> "  %61 = load i8, i8* %arrayidx82, align 1, !dbg !239";
+"arrayidx82" [ color = red ]
+"  %61 = load i8, i8* %arrayidx82, align 1, !dbg !239" -> "  %conv83 = zext i8 %61 to i32, !dbg !239";
+"  %56 = load i32, i32* %arrayidx76, align 4, !dbg !233" -> "  %mul84 = mul nsw i32 %56, %conv83, !dbg !243";
+"  %conv83 = zext i8 %61 to i32, !dbg !239" -> "  %mul84 = mul nsw i32 %56, %conv83, !dbg !243";
+"conv83" -> "  %mul84 = mul nsw i32 %56, %conv83, !dbg !243";
+"conv83" [ color = red ]
+"  %mul84 = mul nsw i32 %56, %conv83, !dbg !243" -> "  %conv85 = sitofp i32 %mul84 to double, !dbg !233";
+"mul84" -> "  %conv85 = sitofp i32 %mul84 to double, !dbg !233";
+"mul84" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  %62 = load double, double* %pixel_value_app, align 8, !dbg !244";
+"pixel_value_app" -> "  %62 = load double, double* %pixel_value_app, align 8, !dbg !244";
+"pixel_value_app" [ color = red ]
+"  %62 = load double, double* %pixel_value_app, align 8, !dbg !244" -> "  %add86 = fadd double %62, %conv85, !dbg !244";
+"  %conv85 = sitofp i32 %mul84 to double, !dbg !233" -> "  %add86 = fadd double %62, %conv85, !dbg !244";
+"conv85" -> "  %add86 = fadd double %62, %conv85, !dbg !244";
+"conv85" [ color = red ]
+"  %add86 = fadd double %62, %conv85, !dbg !244" -> "  store double %add86, double* %pixel_value_app, align 8, !dbg !244";
+"add86" -> "  store double %add86, double* %pixel_value_app, align 8, !dbg !244";
+"add86" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  store double %add86, double* %pixel_value_app, align 8, !dbg !244";
+"pixel_value_app" -> "  store double %add86, double* %pixel_value_app, align 8, !dbg !244";
+"pixel_value_app" [ color = red ]
+"for.inc87" -> "  br label %for.inc87, !dbg !245";
+"for.inc87" [ color = red ]
+"  %i = alloca i32, align 4" -> "  %63 = load i32, i32* %i, align 4, !dbg !246";
+"i" -> "  %63 = load i32, i32* %i, align 4, !dbg !246";
+"i" [ color = red ]
+"  %63 = load i32, i32* %i, align 4, !dbg !246" -> "  %inc88 = add nsw i32 %63, 1, !dbg !246";
+"  %inc88 = add nsw i32 %63, 1, !dbg !246" -> "  store i32 %inc88, i32* %i, align 4, !dbg !246";
+"inc88" -> "  store i32 %inc88, i32* %i, align 4, !dbg !246";
+"inc88" [ color = red ]
+"  %i = alloca i32, align 4" -> "  store i32 %inc88, i32* %i, align 4, !dbg !246";
+"i" -> "  store i32 %inc88, i32* %i, align 4, !dbg !246";
+"i" [ color = red ]
+"for.cond68" -> "  br label %for.cond68, !dbg !247, !llvm.loop !248";
+"for.cond68" [ color = red ]
+"for.inc90" -> "  br label %for.inc90, !dbg !250";
+"for.inc90" [ color = red ]
+"  %j = alloca i32, align 4" -> "  %64 = load i32, i32* %j, align 4, !dbg !251";
+"j" -> "  %64 = load i32, i32* %j, align 4, !dbg !251";
+"j" [ color = red ]
+"  %64 = load i32, i32* %j, align 4, !dbg !251" -> "  %inc91 = add nsw i32 %64, 1, !dbg !251";
+"  %inc91 = add nsw i32 %64, 1, !dbg !251" -> "  store i32 %inc91, i32* %j, align 4, !dbg !251";
+"inc91" -> "  store i32 %inc91, i32* %j, align 4, !dbg !251";
+"inc91" [ color = red ]
+"  %j = alloca i32, align 4" -> "  store i32 %inc91, i32* %j, align 4, !dbg !251";
+"j" -> "  store i32 %inc91, i32* %j, align 4, !dbg !251";
+"j" [ color = red ]
+"for.cond65" -> "  br label %for.cond65, !dbg !252, !llvm.loop !253";
+"for.cond65" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  %65 = load double, double* %pixel_value_app, align 8, !dbg !255";
+"pixel_value_app" -> "  %65 = load double, double* %pixel_value_app, align 8, !dbg !255";
+"pixel_value_app" [ color = red ]
+"  %min = alloca double, align 8" -> "  %66 = load double, double* %min, align 8, !dbg !256";
+"min" -> "  %66 = load double, double* %min, align 8, !dbg !256";
+"min" [ color = red ]
+"  %65 = load double, double* %pixel_value_app, align 8, !dbg !255" -> "  %sub93 = fsub double %65, %66, !dbg !257";
+"  %66 = load double, double* %min, align 8, !dbg !256" -> "  %sub93 = fsub double %65, %66, !dbg !257";
+"  %sub93 = fsub double %65, %66, !dbg !257" -> "  %mul94 = fmul double 2.550000e+02, %sub93, !dbg !258";
+"sub93" -> "  %mul94 = fmul double 2.550000e+02, %sub93, !dbg !258";
+"sub93" [ color = red ]
+"  %max = alloca double, align 8" -> "  %67 = load double, double* %max, align 8, !dbg !259";
+"max" -> "  %67 = load double, double* %max, align 8, !dbg !259";
+"max" [ color = red ]
+"  %min = alloca double, align 8" -> "  %68 = load double, double* %min, align 8, !dbg !260";
+"min" -> "  %68 = load double, double* %min, align 8, !dbg !260";
+"min" [ color = red ]
+"  %67 = load double, double* %max, align 8, !dbg !259" -> "  %sub95 = fsub double %67, %68, !dbg !261";
+"  %68 = load double, double* %min, align 8, !dbg !260" -> "  %sub95 = fsub double %67, %68, !dbg !261";
+"  %mul94 = fmul double 2.550000e+02, %sub93, !dbg !258" -> "  %div = fdiv double %mul94, %sub95, !dbg !262";
+"mul94" -> "  %div = fdiv double %mul94, %sub95, !dbg !262";
+"mul94" [ color = red ]
+"  %sub95 = fsub double %67, %68, !dbg !261" -> "  %div = fdiv double %mul94, %sub95, !dbg !262";
+"sub95" -> "  %div = fdiv double %mul94, %sub95, !dbg !262";
+"sub95" [ color = red ]
+"  %div = fdiv double %mul94, %sub95, !dbg !262" -> "  store double %div, double* %pixel_value_app, align 8, !dbg !263";
+"div" -> "  store double %div, double* %pixel_value_app, align 8, !dbg !263";
+"div" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  store double %div, double* %pixel_value_app, align 8, !dbg !263";
+"pixel_value_app" -> "  store double %div, double* %pixel_value_app, align 8, !dbg !263";
+"pixel_value_app" [ color = red ]
+"  %pixel_value_app = alloca double, align 8" -> "  %69 = load double, double* %pixel_value_app, align 8, !dbg !264";
+"pixel_value_app" -> "  %69 = load double, double* %pixel_value_app, align 8, !dbg !264";
+"pixel_value_app" [ color = red ]
+"  %69 = load double, double* %pixel_value_app, align 8, !dbg !264" -> "  %conv96 = fptoui double %69 to i8, !dbg !264";
+"  %ya = alloca i32, align 4" -> "  %70 = load i32, i32* %ya, align 4, !dbg !265";
+"ya" -> "  %70 = load i32, i32* %ya, align 4, !dbg !265";
+"ya" [ color = red ]
+"  %70 = load i32, i32* %ya, align 4, !dbg !265" -> "  %idxprom97 = sext i32 %70 to i64, !dbg !266";
+"image2" -> "  %arrayidx98 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom97, !dbg !266";
+"image2" [ color = red ]
+"  %idxprom97 = sext i32 %70 to i64, !dbg !266" -> "  %arrayidx98 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom97, !dbg !266";
+"idxprom97" -> "  %arrayidx98 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom97, !dbg !266";
+"idxprom97" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %71 = load i32, i32* %xa, align 4, !dbg !267";
+"xa" -> "  %71 = load i32, i32* %xa, align 4, !dbg !267";
+"xa" [ color = red ]
+"  %71 = load i32, i32* %xa, align 4, !dbg !267" -> "  %idxprom99 = sext i32 %71 to i64, !dbg !266";
+"  %arrayidx98 = getelementptr inbounds [4096 x [4096 x i8]], [4096 x [4096 x i8]]* @image2, i64 0, i64 %idxprom97, !dbg !266" -> "  %arrayidx100 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx98, i64 0, i64 %idxprom99, !dbg !266";
+"arrayidx98" -> "  %arrayidx100 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx98, i64 0, i64 %idxprom99, !dbg !266";
+"arrayidx98" [ color = red ]
+"  %idxprom99 = sext i32 %71 to i64, !dbg !266" -> "  %arrayidx100 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx98, i64 0, i64 %idxprom99, !dbg !266";
+"idxprom99" -> "  %arrayidx100 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx98, i64 0, i64 %idxprom99, !dbg !266";
+"idxprom99" [ color = red ]
+"  %conv96 = fptoui double %69 to i8, !dbg !264" -> "  store i8 %conv96, i8* %arrayidx100, align 1, !dbg !268";
+"conv96" -> "  store i8 %conv96, i8* %arrayidx100, align 1, !dbg !268";
+"conv96" [ color = red ]
+"  %arrayidx100 = getelementptr inbounds [4096 x i8], [4096 x i8]* %arrayidx98, i64 0, i64 %idxprom99, !dbg !266" -> "  store i8 %conv96, i8* %arrayidx100, align 1, !dbg !268";
+"arrayidx100" -> "  store i8 %conv96, i8* %arrayidx100, align 1, !dbg !268";
+"arrayidx100" [ color = red ]
+"for.inc101" -> "  br label %for.inc101, !dbg !269";
+"for.inc101" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  %72 = load i32, i32* %xa, align 4, !dbg !270";
+"xa" -> "  %72 = load i32, i32* %xa, align 4, !dbg !270";
+"xa" [ color = red ]
+"  %72 = load i32, i32* %xa, align 4, !dbg !270" -> "  %inc102 = add nsw i32 %72, 1, !dbg !270";
+"  %inc102 = add nsw i32 %72, 1, !dbg !270" -> "  store i32 %inc102, i32* %xa, align 4, !dbg !270";
+"inc102" -> "  store i32 %inc102, i32* %xa, align 4, !dbg !270";
+"inc102" [ color = red ]
+"  %xa = alloca i32, align 4" -> "  store i32 %inc102, i32* %xa, align 4, !dbg !270";
+"xa" -> "  store i32 %inc102, i32* %xa, align 4, !dbg !270";
+"xa" [ color = red ]
+"for.cond61" -> "  br label %for.cond61, !dbg !271, !llvm.loop !272";
+"for.cond61" [ color = red ]
+"for.inc104" -> "  br label %for.inc104, !dbg !274";
+"for.inc104" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  %73 = load i32, i32* %ya, align 4, !dbg !275";
+"ya" -> "  %73 = load i32, i32* %ya, align 4, !dbg !275";
+"ya" [ color = red ]
+"  %73 = load i32, i32* %ya, align 4, !dbg !275" -> "  %inc105 = add nsw i32 %73, 1, !dbg !275";
+"  %inc105 = add nsw i32 %73, 1, !dbg !275" -> "  store i32 %inc105, i32* %ya, align 4, !dbg !275";
+"inc105" -> "  store i32 %inc105, i32* %ya, align 4, !dbg !275";
+"inc105" [ color = red ]
+"  %ya = alloca i32, align 4" -> "  store i32 %inc105, i32* %ya, align 4, !dbg !275";
+"ya" -> "  store i32 %inc105, i32* %ya, align 4, !dbg !275";
+"ya" [ color = red ]
+"for.cond57" -> "  br label %for.cond57, !dbg !276, !llvm.loop !277";
+"for.cond57" [ color = red ]
+
+}
+
+
